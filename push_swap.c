@@ -6,81 +6,139 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2024/12/31 01:15:44 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:21:23 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "/home/nbougrin/Desktop/push_swap/LIBFT/libft.h"
+#include "/mnt/homes/nbougrin/Desktop/push_swap/LIBFT/libft.h"
 
-int		ft_atoi(const char *str)
+// int ft_null(char *str)
+// {
+// 	int i;
+// 	i = 0;
+
+// 	while (str[i][j])
+// 	{
+// 		/* code */
+// 	}
+	
+// }
+
+int	ft_check(char *str)
 {
-	int i;
-	int sign;
-	int n;
+		int i;
+		int y;
+		char *nb;
+		int k =0;
 
-	i = 0;
-	sign = 1;
-	n = 0;
-	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if(!(str[i] >= '0' && str[i] <= '9'))
-			return(printf("Erorr\n"));
-	while ((str[i] >= '0' && str[i] <= '9') && str[i])
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	}
-	return (printf("%d\n",n * sign));
-}
-char input_chek(char *av)
-	{
-		int i = 0;
-		// printf("%s\n",av);
-		while (av[i])
+		i = 0;
+		y = 0;
+		nb = str;
+		while (nb[k])
+			k++;
+			k--;
+			if(nb[k] == '+' || nb[k] == '-')
+				return(0);
+				k = 0;
+		while (*str)
 		{
-			if(!((av[i] >= '0' && av[i] <= '9') || (av[i] == '+' || av[i] == '-')))
+			if (!((*str == '+' || *str == '-') || (*str >= '0' && *str <= '9')))
+				return(0);
+			if(*str == '+')
 			{
-				return('b');
+				if(k > 0)
+				return(0);
+				i++;
 			}
-			i++;
+			else if(*str == '-')
+			{
+				if(k > 0)
+				return(0);
+				y++;	
+			}
+			str++;
+			k++;
 		}
-		// i = 0;
-		// i = ft_atoi(av);
-		// printf ("%d\n",i);
-		return('a');
-	}
+		if(i > 1 || y > 1)
+			return(0);
+		return(1);
+}
 
+int	ft_astoi(const char *str)
+{
+	int		sign;
+	long	num;
+	long	tmp;
+	int		i;
+
+	sign = 1;
+	num = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	i = 0;
+	while (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		tmp = num;
+		num = (num * 10) + (*str - 48);
+		if (tmp != num / 10 && sign == 1)
+			return (-1);
+		else if (tmp != num / 10 && sign == -1)
+			return (0);
+		str++;
+	}
+	return (sign * (int)num);
+}
 int main(int ac, char **av)
 {
 	int i = 1;
-	if (ac >= 2)
+	int j = 1;
+	char **new;
+	char *str = malloc(sizeof(char));
+	if(ac > 1)
 	{
-		char j;
-		char *str;
-		int i = 1;
-
 		while (av[i])
 		{
-			j = input_chek(av[i]);
-			if (j == 'b')
-				return(printf("Erorr\n"));
-		// printf ("%d\n",ft_atoi(av[/i]));
+			ft_null(av[i]);			
 			i++;
 		}
-		if (j != 0)
-			return (j);
+		
+		while (av[j])
+			j++;
+		while (av[i])
+		{
+			str = ft_strjoin(str,av[i]);
+			if((j - 1) > i)
+			str = ft_strjoin(str," ");
+			i++;
+		}
+		new = ft_split(str, ' ');
+		i = 0;
+		int k = 1;
+		while(new[i])
+		{
+		k = ft_check(new[i]);
+			if(k == 0)
+				return(write(1, "Error\n", 6),0);
+			i++;
+		}
+		i = 0;
+		while (new[i])
+		{
+		int num = ft_astoi(new[i]);
+		printf("%d\n", num);
+			i++;
+		}
 	}
+	else
+	write(1, "Error\n", 6);
+		return(0);	
 }
