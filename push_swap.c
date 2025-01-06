@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/06 19:34:26 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/06 20:07:42 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,41 +56,45 @@ int	ft_check(char *str)
 		return(1);
 }
 
-int		ft_astoi(const char *str)
+int	ft_astoi(const char *str)
 {
-	int i;
-	int sign;
-	int n;
+	int		sign;
+	long	num;
+	long	tmp;
 
-	i = 0;
 	sign = 1;
-	n = 0;
-	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
-		i++;
-	if (str[i] == '-')
+	num = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		sign = -1;
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while ((str[i] >= '0' && str[i] <= '9') && str[i])
+	while (*str >= '0' && *str <= '9')
 	{
-		n = n * 10 + (str[i] - '0');
-		i++;
+		tmp = num;
+		num = (num * 10) + (*str - 48);
+		if (tmp != num / 10 && sign == 1)
+			return (-1);
+		else if (tmp != num / 10 && sign == -1)
+			return (0);
+		str++;
 	}
-	if (((n * sign) > 2147483647) ||((n * sign) < -2147483648))
+	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
 	{
-		return(write(1, "Error\n", 6));
+		write(1, "Error\n", 6);
 		exit(0);
 	}
-	return (n * sign);
+	return (sign * (int)num);
 }
 int main(int ac, char **av)
 {
 	int i = 1;
 	int j = 0;
 	char **new;
+	t_list *head = NULL;
 	char *str = malloc(sizeof(char));
 	if(ac > 1)
 	{
@@ -103,7 +107,7 @@ int main(int ac, char **av)
 		j = 1;
 		while (av[j])
 			j++;
-		while (av[i])
+		while (av[i])`
 		{
 			str = ft_strjoin(str,av[i]);
 			if((j - 1) > i)
@@ -122,12 +126,24 @@ int main(int ac, char **av)
 			i++;
 		}
 		i = 0;
+		int list = 0;
 		while (new[i])
 		{
-		int num = ft_astoi(new[i]);
-		printf("%d\n", num);
-			i++;
+		int *vo = malloc(sizeof(int));
+    	*vo = ft_astoi[&new[i]];
+        t_list *test = ft_lstnew(vo);
+        ft_lstadd_back(&head,test);
+        i++;
+			list++;
 		}
 	}
+	 t_list *new = head;
+    while (new)
+    {
+        printf("%i\n",*(int *)new->content);
+        new = new->next;
+    }
+    
+    // ft_lstclear(&new, ft_del);
 		return(0);	
 }
