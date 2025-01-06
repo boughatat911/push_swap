@@ -13,47 +13,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "/mnt/homes/nbougrin/Desktop/pp/LIBFT/libft.h"
+#include "/home/nbougrin/Desktop/push_swap/LIBFT/libft.h"
 
-int main(int argc, char **argv)
+int		ft_atoi(const char *str)
 {
-	int i = 1;
-	if (argc >= 2)
+	int i;
+	int sign;
+	int n;
+
+	i = 0;
+	sign = 1;
+	n = 0;
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
+		i++;
+	if (str[i] == '-')
 	{
-		char *m;
-		int j = 0;
-		char *temp;	
-		char *s;
-		int ff;
-			
-		while (argv[i])
-		{
-			m = ft_strdup(argv[i]);
-			s = ft_strjoin(m," ");
-			temp = ft_strjoin(temp,s);
-			i++;
-		}	
-		if(ff >= 2147483647 || ff < 0)
-		printf("Error\n");
-			ff = ft_atoi(temp);
-		printf("%d\n",ff);
+		sign = -1;
 		i++;
 	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if(!(str[i] >= '0' && str[i] <= '9'))
+			return(printf("Erorr\n"));
+	while ((str[i] >= '0' && str[i] <= '9') && str[i])
+	{
+		n = n * 10 + (str[i] - '0');
+		i++;
+	}
+	}
+	return (printf("%d\n",n * sign));
 }
-// int main(int argc, char **argv)
-// {
-//         int i = 1;
-//     if (argc >= 2)
-//     {
-//         char *temp = NULL; // Initialize temp
-//         while (i < argc)
-//         {
-//             char *m = strdup(argv[i]); // Duplicate the argument string
-//             char *new_temp = ft_strjoin(temp, m);
-//             temp = new_temp;            
-//             i++;
-//         }
-//         printf("%s\n", temp);
-//     }
-//     return 0;
-// }
+char input_chek(char *av)
+	{
+		int i = 0;
+		// printf("%s\n",av);
+		while (av[i])
+		{
+			if(!((av[i] >= '0' && av[i] <= '9') || (av[i] == '+' || av[i] == '-')))
+			{
+				return('b');
+			}
+			i++;
+		}
+		// i = 0;
+		// i = ft_atoi(av);
+		// printf ("%d\n",i);
+		return('a');
+	}
+
+int main(int ac, char **av)
+{
+	int i = 1;
+	if (ac >= 2)
+	{
+		char j;
+		char *str;
+		int i = 1;
+
+		while (av[i])
+		{
+			j = input_chek(av[i]);
+			if (j == 'b')
+				return(printf("Erorr\n"));
+		// printf ("%d\n",ft_atoi(av[/i]));
+			i++;
+		}
+		if (j != 0)
+			return (j);
+	}
+}

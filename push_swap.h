@@ -10,3 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdlib.h>
+# include <unistd.h>
+
+int		ft_satoi(const char *str, int *error);
+int		input_check(const char *str);
+int		check_duplicates(int *array, int size);
+void	parse_arguments(int argc, char **argv, int **numbers, int *error);
+
+#endif
