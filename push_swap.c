@@ -6,13 +6,14 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/06 20:07:42 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:59:14 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "push_swap.h"
 #include "/mnt/homes/nbougrin/Desktop/push_swap/LIBFT/libft.h"
 
 
@@ -94,7 +95,7 @@ int main(int ac, char **av)
 	int i = 1;
 	int j = 0;
 	char **new;
-	t_list *head = NULL;
+	// t_list *head = NULL;
 	char *str = malloc(sizeof(char));
 	if(ac > 1)
 	{
@@ -107,7 +108,7 @@ int main(int ac, char **av)
 		j = 1;
 		while (av[j])
 			j++;
-		while (av[i])`
+		while (av[i])
 		{
 			str = ft_strjoin(str,av[i]);
 			if((j - 1) > i)
@@ -126,24 +127,25 @@ int main(int ac, char **av)
 			i++;
 		}
 		i = 0;
-		int list = 0;
-		while (new[i])
-		{
-		int *vo = malloc(sizeof(int));
-    	*vo = ft_astoi[&new[i]];
-        t_list *test = ft_lstnew(vo);
-        ft_lstadd_back(&head,test);
-        i++;
-			list++;
-		}
-	}
-	 t_list *new = head;
-    while (new)
-    {
-        printf("%i\n",*(int *)new->content);
-        new = new->next;
-    }
+		// int list = 0;
+	// 	while (new[i])
+	// 	{
+	// 	int *vo = malloc(sizeof(int));
+    // 	*vo = ft_astoi(new[i]);
+    //     t_list *test = ft_lstnew(vo);
+    //     ft_lstadd_back(&head,test);
+    //     i++;
+	// 		list++;
+	// 	}
+	// }
+	//  t_list *new = head;
+    // while (new)
+    // {
+    //     printf("%i\n",new->content == );
+    //     new = new->next;
+    // }
     
     // ft_lstclear(&new, ft_del);
 		return(0);	
+	}
 }
