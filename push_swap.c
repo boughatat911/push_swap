@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/07 15:54:23 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:58:49 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,10 +141,16 @@ int main(int ac, char **av)
 	 t_list *news = head;
     while (news)
     {
-        printf("%i ",*(int *)news->content);
+	 t_list *new_check = news->next;
+		
+		while (new_check)
+		{
+			if( *(int *)new_check->content == *(int *)news->content)
+				return(write(2, "Error\n", 6), 2);
+        	new_check = new_check->next;
+		}		
         news = news->next;
     }
-    
     // ft_lstclear(&new, ft_del);
 		return(0);	
 	}

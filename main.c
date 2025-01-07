@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/07 15:55:41 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:59:01 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int main(int ac, char **av)
 	 t_list *news = head;
     while (news)
     {
-        printf("%i ",*(int *)news->content);
+        printf("%i",*(int *)news->content);
         news = news->next;
     }
     
