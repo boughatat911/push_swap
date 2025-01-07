@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/07 18:58:49 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/07 21:48:59 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	ft_check(char *str)
 		int i;
 		int y;
 		char *nb;
-		int k =0;
+		int k;
 
 		i = 0;
+		k = 0;
 		y = 0;
 		nb = str;
 		while (nb[k])
@@ -92,19 +93,21 @@ int	ft_astoi(const char *str)
 }
 int main(int ac, char **av)
 {
-	int i = 1;
-	int j = 0;
-	char **new;
-	t_list *head = NULL;
-	char *str = malloc(sizeof(char));
+	int		i;
+	int		j;
+	char	**new;
+	t_list 	*head;
+
+	i = 1;
+	j = 0;
+	head = NULL;
+	char *str;//= malloc(sizeof(char));
 	if(ac > 1)
 	{
 		while (av[i][j] == ' ')
 			j++;
 		if(!av[i][0] || (av[i][j] == '\0'))
 			return(write(1, "Error\n", 6),0);
-		
-		
 		j = 1;
 		while (av[j])
 			j++;
@@ -117,17 +120,16 @@ int main(int ac, char **av)
 		}
 		new = ft_split(str, ' ');
 		i = 0;
-		int k = 1;
-		int gg= 0;
+		j = 1; // int k = 1;
+		// int gg= 0;
 		while(new[i])
 		{
-		k = ft_check(new[i]);
-			if(k == 0)
+		j = ft_check(new[i]);
+			if(j == 0)
 				return(write(1, "Error\n", 6),0);
 			i++;
 		}
-		i = 0;
-		// int list = 0;
+		i = 0;	
 		while (new[i])
 		{
 		int *vo = malloc(sizeof(int));
@@ -138,17 +140,17 @@ int main(int ac, char **av)
 			// list++;
 		}
 	}
-	 t_list *news = head;
+	t_list *news = head;
     while (news)
     {
 	 t_list *new_check = news->next;
 		
 		while (new_check)
 		{
-			if( *(int *)new_check->content == *(int *)news->content)
+			if(*(int *)new_check->content == *(int *)news->content)
 				return(write(2, "Error\n", 6), 2);
         	new_check = new_check->next;
-		}		
+		}
         news = news->next;
     }
     // ft_lstclear(&new, ft_del);
