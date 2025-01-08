@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/07 21:48:59 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:51:40 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@
 #include "push_swap.h"
 #include "/mnt/homes/nbougrin/Desktop/push_swap/LIBFT/libft.h"
 
+void f()
+{
+    system("leaks a.out");
+}
+void del(void *content)
+{
+    if (content)
+        free(content);
+}
+void	free2darray(char **array, int n)
+{
+	while (n--)
+		free(array[n]);
+	free(array);
+}
 
 int	ft_check(char *str)
 {
@@ -97,6 +112,8 @@ int main(int ac, char **av)
 	int		j;
 	char	**new;
 	t_list 	*head;
+	char 	*temp;
+	int 	*vo;
 
 	i = 1;
 	j = 0;
@@ -113,12 +130,19 @@ int main(int ac, char **av)
 			j++;
 		while (av[i])
 		{
+			temp = str;
 			str = ft_strjoin(str,av[i]);
+			free(temp);
 			if((j - 1) > i)
-			str = ft_strjoin(str," ");
+			{
+				temp = str;
+				str = ft_strjoin(str," ");
+				free(temp);
+			}
 			i++;
 		}
 		new = ft_split(str, ' ');
+		free (str);
 		i = 0;
 		j = 1; // int k = 1;
 		// int gg= 0;
@@ -132,27 +156,35 @@ int main(int ac, char **av)
 		i = 0;	
 		while (new[i])
 		{
-		int *vo = malloc(sizeof(int));
-    	*vo = ft_astoi(new[i]);
-        t_list *test = ft_lstnew(vo);
-        ft_lstadd_back(&head,test);
-        i++;
-			// list++;
+			vo = malloc(sizeof(int));
+			*vo = ft_astoi(new[i]);
+			t_list *test = ft_lstnew(vo);
+			ft_lstadd_back(&head,test);
+			i++;
 		}
-	}
-	t_list *news = head;
-    while (news)
+		printf("{%d}\n",i);
+		t_list *news = head;
+		while (news)
     {
 	 t_list *new_check = news->next;
-		
 		while (new_check)
 		{
 			if(*(int *)new_check->content == *(int *)news->content)
-				return(write(2, "Error\n", 6), 2);
+				return(write(2, "Error= likd_list\n", 17), 2);
         	new_check = new_check->next;
 		}
         news = news->next;
     }
-    // ft_lstclear(&new, ft_del);
+    // ft_lstclear(&news, del);
+    ft_lstclear(&head, del);
+		i = 0;		
+		while (new[i]) ////////////////// mzal
+			i++;
+			free2darray(new,i);
+		}
+		// del(head);
+	atexit(f);
 		return(0);	
 	}
+    // ft_lstclear(&new, ft_del);
+	
