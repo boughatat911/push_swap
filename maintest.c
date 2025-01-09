@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   maintest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/09 18:56:11 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:41:44 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ int	ft_astoi(const char *str)
 
 	sign = 1;
 	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -89,7 +87,7 @@ int	ft_astoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		tmp = num;
+		// tmp = num;
 		num = (num * 10) + (*str - 48);
 		if (tmp != num / 10 && sign == 1)
 			return (-1);
@@ -106,30 +104,23 @@ int	ft_astoi(const char *str)
 }
 int main(int ac, char **av)
 {
-	int i = 1;
-	int j = 0;
+	int i;
+	int j;
 	char **new;
-	t_list *head = NULL;
 	char *temp;
-	char *str = malloc(sizeof(char));
+	t_list *head;
+	char *str;
+
+	head = NULL;
+	str = malloc(sizeof(char));
+	i = 1;
+	j = 0;
 	if(ac > 1)
 	{
 		while (av[i][j] == ' ')
 			j++;
-		while(av[i])
-		{
-			while (!av[i] || (av[i][j] == '\0'))
-			{
+		if(!av[i][0] || (av[i][j] == '\0'))
 			return(write(1, "Error\n", 6),0);
-				i++;
-				break;
-			}
-			
-			i++;
-				
-		}
-		i = 1;
-		
 		j = 1;
 		while (av[j])
 			j++;
@@ -157,7 +148,6 @@ int main(int ac, char **av)
 			i++;
 		}
 		i = 0;
-		// int list = 0;
 		while (new[i])
 		{
 		int *vo = malloc(sizeof(int));
@@ -165,7 +155,6 @@ int main(int ac, char **av)
         t_list *test = ft_lstnew(vo);
         ft_lstadd_back(&head,test);
         i++;
-			// list++;
 		}
 		t_list *news = head;
 		while (news)
@@ -182,11 +171,10 @@ int main(int ac, char **av)
 		i = 0;		
 		while (new[i])
 			i++;
-			// i--;
 			free2darray(new,i);
     ft_lstclear(&head, del);
 	}
 	free(str);
-	// atexit(f);
+	atexit(f);
 		return(0);	
 	}
