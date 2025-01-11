@@ -6,7 +6,7 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/11 20:17:28 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/11 20:22:24 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,26 +39,3 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
-
-# OBJS= $(SRCS:.c=.o)
-
-# OBJS_BONUS=$(SRCS_BONUS:.c=.o)
-
-# all : $(NAME)
-
-# $(NAME) : $(OBJS)
-# 	$(AR) $(NAME) $(OBJS)
-
-# %.o : %.c libft.h
-# 	$(CC) -c $(CFLAGS) $< -o $@
-
-# bonus : $(OBJS_BONUS)
-# 	@$(AR) $(NAME) $(OBJS_BONUS)
-
-# clean :
-# 	$(RM) $(OBJS) $(OBJS_BONUS)
-
-# fclean : clean
-# 	$(RM) $(NAME)
-
-# re : fclean all
