@@ -6,26 +6,16 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 19:26:07 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/11 20:03:56 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free2darray(char **array)
+long	ft_astoi(const char *str)
 {
-	int	i;
-
-	i = 0;
-	while (array[i] != NULL)
-		free(array[i++]);
-	free(array);
-}
-
-long ft_astoi(const char *str)
-{
-	long sign;
-	long num;
+	long	sign;
+	long	num;
 
 	sign = 1;
 	num = 0;
@@ -51,10 +41,10 @@ long ft_astoi(const char *str)
 	return (sign * num);
 }
 
-void ft_check_empty(char **av)
+void	ft_check_empty(char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 1;
 	while (av[j])
@@ -68,12 +58,12 @@ void ft_check_empty(char **av)
 	}
 }
 
-void fill_stack(char **av, t_list **head)
+void	fill_stack(char **av, t_list **head)
 {
 	char	**new;
-	int 	i;
-	int 	j;
-	long 	atoi;
+	int		i;
+	int		j;
+	long	atoi;
 
 	i = 1;
 	atoi = 0;
@@ -87,20 +77,20 @@ void fill_stack(char **av, t_list **head)
 			if (atoi == 2147483648)
 			{
 				ft_lstclear(head);
-				(write(1, "Error_ft_atoi\n", 14),free2darray(new), exit(1));
+				(write(1, "Error_ft_atoi\n", 14), ft_free2darray(new), exit(1));
 			}
 			ft_lstadd_back(head, ft_lstnew((atoi)));
 			j++;
 		}
-		free2darray(new);
+		ft_free2darray(new);
 		i++;
 	}
 }
 
 void	check_dup(t_list *head)
 {
-	t_list *news;
-	t_list *new_check;
+	t_list	*news;
+	t_list	*new_check;
 
 	news = head;
 	while (news)
@@ -108,10 +98,10 @@ void	check_dup(t_list *head)
 		new_check = news->next;
 		while (new_check)
 		{
-			if(new_check->content == news->content)
+			if (new_check->content == news->content)
 			{
 				ft_lstclear(&head);
-				write(2, "Error= likd_list\n", 17) , exit (1);
+				(write(2, "Error= likd_list\n", 17), exit (1));
 			}
 			new_check = new_check->next;
 		}
@@ -119,21 +109,9 @@ void	check_dup(t_list *head)
 	}
 }
 
-void print_node(t_list *head)
-{
-	t_list *news = head;
-		while (news)
-		{
-			printf("%d\n",news->content);
-			news = news->next;
-		}
-		// ft_lstclear(&head,del);
-}
-
 void	parse_it(char **av, t_list **head)
 {
 	ft_check_empty(av);
 	fill_stack(av, head);
 	check_dup(*head);
-	
 }

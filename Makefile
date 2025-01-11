@@ -6,11 +6,11 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2024/12/30 23:57:46 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/11 20:17:28 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+NAME=push_swap.a
 
 CC=cc
 
@@ -20,29 +20,45 @@ AR=ar cr
 
 RM=rm -f
 
-SRCS=			
-
-SRCS_BONUS=		
+SRCS= fun_linked_list.c parsing.c push_swap.c ft_split.c
 
 OBJS= $(SRCS:.c=.o)
-
-OBJS_BONUS=$(SRCS_BONUS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o : %.c libft.h
+%.o : %.c push_swap.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-bonus : $(OBJS_BONUS)
-	$(AR) $(NAME) $(OBJS_BONUS)
-
 clean :
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+# OBJS= $(SRCS:.c=.o)
+
+# OBJS_BONUS=$(SRCS_BONUS:.c=.o)
+
+# all : $(NAME)
+
+# $(NAME) : $(OBJS)
+# 	$(AR) $(NAME) $(OBJS)
+
+# %.o : %.c libft.h
+# 	$(CC) -c $(CFLAGS) $< -o $@
+
+# bonus : $(OBJS_BONUS)
+# 	@$(AR) $(NAME) $(OBJS_BONUS)
+
+# clean :
+# 	$(RM) $(OBJS) $(OBJS_BONUS)
+
+# fclean : clean
+# 	$(RM) $(NAME)
+
+# re : fclean all

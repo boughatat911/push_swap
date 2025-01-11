@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 19:03:56 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/11 20:12:43 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,17 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-
 char	**ft_split(char const *s, char c);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+char	**ft_split(char const *s, char c);
 t_list	*ft_lstlast(t_list *lst);
-int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(int content);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s1);
-size_t	ft_strlen(const char *s);
-// void	ft_lstclear(t_list **lst, void (*del)(int *));
-void ft_lstclear(t_list **lst);
-/* Utils */
-// int		ft_isspace(char c);
-// int		ft_isdigit(char c);
-// void	ft_free_stack(t_stack *stack);
-// t_stack	*ft_init_stack(int size);
-// int		has_duplicates(int *numbers, int size);
-// int		count_numbers_in_str(char *str);
-// long	ft_atol(char *str, int *i, int *error);
-
-// /* Parsing */
-// t_stack	*parse_string(char *str);
-// t_stack	*parse_args(int ac, char **av);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst);
+void	ft_free2darray(char **array);
+void	ft_check_empty(char **av);
+void	fill_stack(char **av, t_list **head);
+void	check_dup(t_list *head);
+void	parse_it(char **av, t_list **head);
+long	ft_astoi(const char *str);
 
 #endif
