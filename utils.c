@@ -111,22 +111,21 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-void	ft_lstclear(t_list **lst, void (del)(int))
+
+void ft_lstclear(t_list **lst)
 {
-	t_list	*n;
+    t_list *n;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		n = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = n;
-	}
-	*lst = NULL;
+    if (!lst)  // Check if the list pointer is NULL
+        return;
+    while (*lst)
+    {
+        n = (*lst)->next;  // Save the next node
+        free(*lst);        // Free the node itself
+        *lst = n;
+    }
+    *lst = NULL;
 }
-
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -139,17 +138,49 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_lstnew(int content)
-{
-	t_list	*node;
+// t_list	*ft_lstnew(int content)
+// {
+// 	t_list	*node;
 
-	node = malloc(sizeof(t_list));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+// 	node = malloc(sizeof(t_list));
+// 	if (!node)
+// 		return (NULL);
+// 	node->content = content;
+// 	node->next = NULL;
+// 	return (node);
+// }
+
+// t_list *ft_lstnew(int content)
+// {
+//     t_list *node;
+
+//     node = malloc(sizeof(t_list));  // Allocate memory for the node
+//     if (!node)
+//         return (NULL);
+
+//     node->content = malloc(sizeof(int));  // Allocate memory for the integer content
+//     if (!node->content) {
+//         free(node);  // Free the node if memory allocation for content fails
+//         return (NULL);
+//     }
+
+//     *(node->content) = content;  // Store the value of content in the allocated memory
+//     node->next = NULL;
+
+//     return (node);
+// }
+t_list *ft_lstnew(int content)
+{
+    t_list *node;
+
+    node = malloc(sizeof(t_list));
+    if (!node)
+        return (NULL);
+    node->content = content;  // Directly store the integer
+    node->next = NULL;
+    return (node);
 }
+
 
 int	ft_lstsize(t_list *lst)
 {

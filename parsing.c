@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 19:27:36 by nbougrin         ###   ########.fr       */
+/*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
+/*   Updated: 2025/01/11 19:26:07 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void f()
-{
-    system("leaks a.out");
-}
 void	free2darray(char **array)
 {
 	int	i;
@@ -140,17 +136,4 @@ void	parse_it(char **av, t_list **head)
 	fill_stack(av, head);
 	check_dup(*head);
 	
-}
-int main(int ac, char **av)
-{
-	atexit(f);
-	t_list 	*head;
-	head = NULL;
-	if(ac > 1)
-	{
-		parse_it(av, &head);
-		print_node(head);
-		ft_lstclear(&head);
-	}
-		return(0);	
 }
