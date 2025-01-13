@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fun_link_list.c                                    :+:      :+:    :+:   */
+/*   fun_linked_list.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:57:15 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 20:02:46 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:48:53 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,12 @@ void	ft_free2darray(char **array)
 	while (array[i] != NULL)
 		free(array[i++]);
 	free(array);
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst == NULL || new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/13 13:27:15 by nbougrin         ###   ########.fr       */
+/*   Created: 2024/11/06 11:27:51 by nbougrin          #+#    #+#             */
+/*   Updated: 2024/11/11 16:58:27 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void f()
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    system("leaks a.out");
-}
-void	print_node(t_list *head)
-{
-	t_list *news = head;
-	while (news)
-	{
-		printf("%d ", news->content);
-		news = news->next;
-	}
-}
+	t_list	*final;
 
-int main(int ac, char **av)
-{
-	// atexit(f);
-	t_list 	*head;
-	head = NULL;
-	if(ac > 1)
+	if (!new || !lst)
+		return ;
+	if (*lst == NULL)
 	{
-		parse_it(av, &head);
-		print_node(head);
-		ft_lstclear(&head);
+		*lst = new;
+		return ;
 	}
-		return(0);	
+	final = ft_lstlast(*lst);
+	final->next = new;
+	return ;
 }

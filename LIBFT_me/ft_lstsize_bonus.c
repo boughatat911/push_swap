@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/13 13:27:15 by nbougrin         ###   ########.fr       */
+/*   Created: 2024/11/06 11:33:07 by nbougrin          #+#    #+#             */
+/*   Updated: 2024/11/10 12:10:06 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void f()
+int	ft_lstsize(t_list *lst)
 {
-    system("leaks a.out");
-}
-void	print_node(t_list *head)
-{
-	t_list *news = head;
-	while (news)
-	{
-		printf("%d ", news->content);
-		news = news->next;
-	}
-}
+	int		count;
+	t_list	*sin;
 
-int main(int ac, char **av)
-{
-	// atexit(f);
-	t_list 	*head;
-	head = NULL;
-	if(ac > 1)
+	sin = lst;
+	count = 0;
+	while (sin)
 	{
-		parse_it(av, &head);
-		print_node(head);
-		ft_lstclear(&head);
+		sin = sin->next;
+		count++;
 	}
-		return(0);	
+	return (count);
 }
