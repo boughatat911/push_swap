@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 20:00:14 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:33:17 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_node(t_list *head)
 
 int main(int ac, char **av)
 {
-	atexit(f);
+	// atexit(f);
 	t_list 	*head;
 	head = NULL;
 	if(ac > 1)

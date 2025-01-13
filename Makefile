@@ -6,36 +6,34 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/11 20:28:04 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/13 10:34:58 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=push_swap.a
+NAME=push_swap
 
 CC=cc
 
 CFLAGS=-Wall -Wextra -Werror
 
-AR=ar cr
-
 RM=rm -f
 
-SRCS= fun_linked_list.c parsing.c push_swap.c ft_split.c
+SRCS=fun_linked_list.c parsing.c push_swap.c ft_split.c
 
-OBJS= $(SRCS:.c=.o)
+OBJS=$(SRCS:.c=.o)
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.c push_swap.h
+%.o: %.c push_swap.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-clean :
+clean:
 	$(RM) $(OBJS)
 
-fclean : clean
+fclean: clean
 	$(RM) $(NAME)
 
-re : fclean all
+re: fclean all

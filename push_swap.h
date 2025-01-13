@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/11 20:12:43 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:34:30 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-char	**ft_split(char const *s, char c);
 char	**ft_split(char const *s, char c);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
