@@ -34,47 +34,39 @@ static int count_nodes(t_list *stack)
     return (count);
 }
 
-
-void    sort_5(t_list **stack)
+void    ft_indexing(t_list *stack)
 {
-    t_list  *stack_b;
-    int     size;
-    
-    if (!stack || !*stack)
+    t_list  *tmp;
+    t_list  *check;
+    int     indix;
+
+    if (!stack)
         return;
-        
-    size = count_nodes(*stack);
-    if (size == 1)
-        return;
-    if (size == 2)
+
+    tmp = stack;
+    while (tmp)
     {
-        sort_21(stack);
-        return;
+        indix = 0;
+        check = stack;
+        while (check)
+        {
+            if (check->content < tmp->content)
+                indix++;
+            check = check->next;
+        }
+        tmp->index = indix;
+        tmp = tmp->next;
     }
-    if (size == 3)
-    {
-        sort_31(stack);
-        return;
-    }
-    
-    stack_b = NULL;
-    
-    // For 4 or 5 elements
-    if (size >= 4)
-        pb(stack, &stack_b);
-    if (size == 5)
-        pb(stack, &stack_b);
-        
-    // Sort remaining 3
-    sort_31(stack);
-    
-    // Push back and insert in correct position
-    while (stack_b)
-    {
-        pa(&stack_b, stack);
-        if ((*stack)->content > (*stack)->next->content)
-            sa(stack);
-    }
+}
+void    sort_5(t_list   **stack)
+{
+    t_list *tmp;
+    pa(stack, &tmp);
+    pa(stack, &tmp);
+    sort_3(stack);
+    pb(stack, &tmp);
+    pb(stack, &tmp);
+    sort_2(stack);
 }
 
 int main(int ac, char **av)
@@ -87,8 +79,11 @@ int main(int ac, char **av)
 	if(ac > 1)
 	{
 		parse_it(av, &a);
-		sort_5(&a);
-		print_node(a);
+        sort_5(&a);
+		// sort_5(&a);
+    // printf("%d")
+
+		// print_node(a);
 	}
 		return(0);	
 }

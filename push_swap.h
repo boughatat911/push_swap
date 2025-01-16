@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/16 14:39:01 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:48:54 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct s_list
 {
 	int				content;
+    int             index;
 	struct s_list	*next;
 }					t_list;
 
