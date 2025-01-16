@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:37:47 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/13 19:39:04 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:14:59 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ra(t_list	**stack_a)
 	*stack_a = tmp->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_a, tmp);
-	write(1, "rb\n", 3);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_list	**stack_b)

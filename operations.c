@@ -6,11 +6,11 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:05:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/13 18:20:45 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:37:24 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// #include "push_swap.h"
 void f()
 {
     system("leaks a.out");
@@ -178,7 +178,7 @@ int main(int ac, char **av)
 }
 
 
-#include <libc.h>
+// #include <libc.h>
 // int main() {
 //     // Create and populate stacks
 //     t_list *stack_a = NULL;

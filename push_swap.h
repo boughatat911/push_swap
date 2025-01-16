@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/13 19:42:49 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:39:01 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
@@ -26,10 +27,16 @@
 typedef struct s_list
 {
 	int				content;
-	
 	struct s_list	*next;
 }					t_list;
 
+void	print_node(t_list *head);
+// ------------------------------------
+
+void    sort_2(t_list   **stack);
+void sort_3(t_list  **stack);
+
+// ------------------------------------
 char	**ft_split(char const *s, char c);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
@@ -51,7 +58,7 @@ void	pa(t_list	**stack_a, t_list	**stack_b);
 void	pb(t_list	**stack_a, t_list	**stack_b);
 void	ra(t_list	**stack_a);
 void	rb(t_list	**stack_b);
-void	rr(t_list	**stack_a, t_`list	**stack_b);
+void	rr(t_list	**stack_a, t_list	**stack_b);
 void	rra(t_list	**stack_a);
 void	rrb(t_list	**stack_b);
 void	rrr(t_list	**stack_a, t_list	**stack_b);
