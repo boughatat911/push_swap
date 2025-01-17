@@ -1,37 +1,26 @@
-void    sort_5(t_list **stack)
+void    pa(t_list **stack_b, t_list **stack_a)
 {
-    t_list  *stack_b;
-    
-    stack_b = NULL;
-    // First push 2 numbers to stack b
-    pb(stack, &stack_b);
-    pb(stack, &stack_b);
-    
-    // Sort remaining 3 in stack
-    if ((*stack)->content > (*stack)->next->content)
-        sa(stack);
-    if ((*stack)->next->content > (*stack)->next->next->content)
-    {
-        rra(stack);
-        if ((*stack)->content > (*stack)->next->content)
-            sa(stack);
-    }
-    
-    // Push back from b and insert in correct position
-    while (stack_b)
-    {
-        if (stack_b->content < (*stack)->content)
-            pa(&stack_b, stack);
-        else if (stack_b->content > (*stack)->next->next->content)
-        {
-            ra(stack);
-            pa(&stack_b, stack);
-            rra(stack);
-        }
-        else
-        {
-            ra(stack);
-            pa(&stack_b, stack);
-        }
-    }
+    t_list  *temp;
+
+    if (!stack_b || !*stack_b || !stack_a)
+        return;
+    temp = *stack_b;
+    *stack_b = (*stack_b)->next;
+    temp->next = *stack_a;
+    *stack_a = temp;
+
+    write(1, "pa\n", 3);
+}
+
+void    pb(t_list **stack_a, t_list **stack_b)
+{
+    t_list  *temp;
+
+    if (!stack_a || !*stack_a || !stack_b)
+        return;
+    temp = *stack_a;
+    *stack_a = (*stack_a)->next;
+    temp->next = *stack_b;
+    *stack_b = temp;
+    write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/16 18:48:54 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/17 19:12:45 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void	print_node(t_list *head);
 // ------------------------------------
 
 void    sort_2(t_list   **stack);
-void sort_3(t_list  **stack);
+void    sort_3(t_list  **stack);
+void    sort_5(t_list   **stack);
+void    ft_indexing(t_list *stack);
 
 // ------------------------------------
 char	**ft_split(char const *s, char c);

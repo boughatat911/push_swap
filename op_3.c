@@ -6,39 +6,46 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:37:47 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/16 16:14:59 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/17 22:40:30 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list	**stack_a, t_list	**stack_b)
+void	pa(t_list	**stack_b, t_list	**stack_a)
 {
-	t_list	*new;
-	t_list	*last_b;
-	t_list	*temp;
-
-	temp = *stack_b;
-	last_b->content = (*stack_b)->content;
-	ft_lstadd_front(stack_a, last_b);
-	*stack_b = temp->next;
-	free(temp);
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_list	**stack_a, t_list	**stack_b)
-{
-	t_list	*new;
+	// t_list	*new;
 	t_list	*last_a;
 	t_list	*temp;
 
-	temp = *stack_a;
-	last_a->content = (*stack_a)->content;
-	ft_lstadd_front(stack_b, last_a);
-	*stack_a = temp->next;
-	free(temp);
-	write(1, "pb\n", 3);
+	temp = *stack_b;
+    last_a = *stack_b;
+    *stack_b = temp->next;
+	ft_lstadd_front(stack_a, last_a);
+	write(1, "pa\n", 3);
 }
+
+// void	pb(t_list	**stack_a, t_list	**stack_b)
+// {
+// 	t_list	*last_a;
+// 	t_list	*tmp;
+
+// 	tmp = *stack_a;
+//     last_a = *stack_a;
+//     *stack_a = tmp->next;
+// 	ft_lstadd_front(stack_b, last_a);
+// 	write(1, "pb\n", 3);
+// }
+void pb(t_list **src, t_list **dest)
+{
+    if (!*src)
+        return;
+    t_list *tmp = *src;
+    *src = (*src)->next;  // Advance the source stack
+    tmp->next = *dest;    // Link the removed node to the destination stack
+    *dest = tmp;          // Update the destination stack head
+}
+
 
 void	ra(t_list	**stack_a)
 {

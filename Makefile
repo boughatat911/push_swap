@@ -6,11 +6,11 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/16 13:13:52 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/17 19:09:26 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libftprintf.a
+NAME=lpush_swap.a
 
 CC=cc
 
