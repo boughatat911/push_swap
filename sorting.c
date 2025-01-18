@@ -6,26 +6,11 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:12:39 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/17 22:09:22 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:39:47 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int count_nodes(t_list *stack)
-{
-    int count;
-    t_list *tmp;
-    
-    count = 0;
-    tmp = stack;
-    while (tmp)
-    {
-        count++;
-        tmp = tmp->next;
-    }
-    return (count);
-}
 
 void    ft_indexing(t_list *stack)
 {
@@ -64,7 +49,7 @@ void    sort_2(t_list   **stack)
 
 void sort_3(t_list **stack)
 {
-    if (!stack || !*stack || !(*stack)->next || !(*stack)->next->next)
+    if (!stack || !*stack)
         return;
 
     int one = (*stack)->content;
@@ -88,6 +73,45 @@ void sort_3(t_list **stack)
         ra(stack);
     }
 }
-// }
 
+void sort_5(t_list **stack)
+{
+    t_list *stack_b;
+    t_list *stack_a;
+	int i;
 
+	i = 0;
+	stack_a = *stack;
+	while (!(stack_a->index == 0))
+		(stack_a = stack_a->next,i++);
+	stack_a = *stack;
+	while (i > 0 )
+		(ra(&stack_a),i--);
+	pb(&stack_a, &stack_b);
+	i = 0;	 
+	*stack = stack_a;
+	while (!(stack_a->index == 1))
+		(stack_a = stack_a->next,i++);
+	stack_a = *stack;
+	while (i > 0 )
+		(ra(&stack_a),i--);
+	pb(&stack_a, &stack_b);
+	sort_3(&stack_a);
+	pa(&stack_b, &stack_a);
+	pa(&stack_b, &stack_a);
+	sort_2(&stack_a);
+	*stack = stack_a;
+}
+void	sort(t_list	**stack)
+{
+	int size;
+
+	size = 0;
+	size = ft_lstsize(*stack);
+	if(size == 2)
+		sort_2(stack);
+	else if(size == 3)
+		sort_3(stack);
+	else if(size == 5)
+		sort_5(stack);
+}
