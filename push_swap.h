@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/18 20:40:42 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:51:07 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_list
 }					t_list;
 
 void	print_node(t_list *head);
-// ------------------------------------
+// -----------sorting-------------------------
 void	sort(t_list	**stack);
 void    sort_2(t_list   **stack);
 void    sort_3(t_list  **stack);
@@ -40,7 +40,7 @@ void    sort_5(t_list   **stack);
 void    ft_indexing(t_list *stack);
 int	ft_lstsize(t_list *lst);
 
-// ------------------------------------
+//---------parsing-----------------
 char	**ft_split(char const *s, char c);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
@@ -54,7 +54,7 @@ void	check_dup(t_list *head);
 void	parse_it(char **av, t_list **head);
 long	ft_astoi(const char *str);
 
-
+//---------operations-----------------
 void	sa(t_list	**stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list	**stack_a, t_list	**stack_b);
@@ -68,6 +68,8 @@ void	rrb(t_list	**stack_b);
 void	rrr(t_list	**stack_a, t_list	**stack_b);
 void	rotate_rra_rrb(t_list	**stack);
 void	s_rotate(t_list	**stack_a);
+//---------algo-----------------
+int	ft_check_indix(t_list	**stack, int len);
 
 
 #endif

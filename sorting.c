@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:12:39 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/18 20:39:47 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:35:10 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	sort(t_list	**stack)
 {
 	int size;
 
+	ft_indexing(*stack);
 	size = 0;
 	size = ft_lstsize(*stack);
 	if(size == 2)
@@ -114,4 +115,6 @@ void	sort(t_list	**stack)
 		sort_3(stack);
 	else if(size == 5)
 		sort_5(stack);
+	else
+		algo(*stack);
 }

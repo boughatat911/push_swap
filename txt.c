@@ -19,6 +19,15 @@ t_list *new_node(int value)
     return node;
 }
 // --------------------------------------------------------------------
+void    sort_21(t_list   **stack)
+{
+    t_list *tmp;
+
+    tmp = *stack;
+    tmp = tmp->next;
+    if(tmp->index < (*stack)->index)
+        sa(stack);
+}
 
 int main(int ac, char **av)
 {
@@ -30,8 +39,7 @@ int main(int ac, char **av)
 	if(ac > 1)
 	{
 		parse_it(av, &a);
-        ft_indexing(a);
-        sort_5(&a);
+        algo(&a);
         print_node(a);
 	}
 	return(0);

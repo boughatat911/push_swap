@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:57:15 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/18 20:36:47 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 01:48:49 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ void ft_lstclear(t_list **lst)
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
+	t_list *new;
+	new = lst;
+	if (!new)
 		return (NULL);
-	while (lst->next != NULL)
+	while (new->next != NULL)
 	{
-		lst = lst->next;
+		new = new->next;
 	}
-	return (lst);
+	return (new);
 }
 
 t_list *ft_lstnew(int content)
