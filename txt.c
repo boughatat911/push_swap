@@ -39,8 +39,8 @@ int main(int ac, char **av)
 	if(ac > 1)
 	{
 		parse_it(av, &a);
-        algo(&a);
-        print_node(a);
+        // print_node(a);
+		// printf("{%d}\n",check_in(&a));
 	}
 	return(0);
 }

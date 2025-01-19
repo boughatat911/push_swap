@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:20:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 04:34:18 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:55:26 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,10 @@ void	algo(t_list	**stack)
 
 	while (ft_lstsize(stack_a) > 3)
 	{
-		// Find smallest number and push to stack B
 		while (ft_lstsize(stack_b) < size - 3)
 		{
 			if (stack_a->index == ft_lstsize(stack_b))
-			{
 				pb(&stack_a, &stack_b);
-			}
 			else if (ft_lstlast(stack_a)->index == ft_lstsize(stack_b))
 			{
 				rra(&stack_a);
@@ -60,7 +57,6 @@ void	algo(t_list	**stack)
 			}
 			else
 			{
-				// Rotate based on position of smallest remaining number
 				if (ft_check_indix(&stack_a, ft_lstsize(stack_b)) == 1)
 					ra(&stack_a);
 				else
@@ -77,9 +73,24 @@ void	algo(t_list	**stack)
 	if (stack_a->index > stack_a->next->index)
 		sa(&stack_a);
 	while (stack_b)
-	{
 		pa(&stack_b, &stack_a);
-	}
-
 	*stack = stack_a;
+}
+int check_index(t_list **stack)
+{
+	t_list *tmp;
+	int  i = 0;
+
+	while (tmp)
+	{
+		if(tmp->index != i)
+		{
+			ft_lstclear(stack);
+			write(1, "Error_sort\n", 11);
+			exit(1);
+		}
+		i++;
+		tmp = tmp->next;
+	}
+	return (0);
 }

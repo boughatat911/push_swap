@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:12:39 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 04:35:10 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:37:26 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,5 @@ void	sort(t_list	**stack)
 	else if(size == 5)
 		sort_5(stack);
 	else
-		algo(*stack);
+		algo(stack);
 }
