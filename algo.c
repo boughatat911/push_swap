@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:20:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 06:56:49 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:04:11 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,30 @@ int	ft_check_indix(t_list	**stack, int len)
 // 	*stack = stack_a;
 // }
 
-void	algo(t_list	**stack)
+void	algo(t_list	**a)
 {
-	t_list *stack_a = *stack;
-	t_list *stack_b;
+	int	pv1;
+	int	pv2;
+	t_list *b;
 	
-	int i = 0;
-	int k = 0;
-	int range = 0;
+	b = NULL;
+	pv2 = 0;
+	while (ft_lstsize(*a) > 3)
+	{
+		pv1 = (ft_lstsize(*a) / 6) + pv2;
+		pv2 += (ft_lstsize(*a) / 3);
+		while (ft_lstsize(b) < pv2 && ft_lstsize(*a) > 3)
+		{
+			if (ft_lstsize(b) > 1 && (b)->index < pv1 && (*a)->index >= pv2)
+				rr(a, &b);
+			else if (ft_lstsize(b) > 1 && (b)->index < pv1)
+				rb(&b);
+			if ((*a)->index >= pv2)
+				ra(a);
+			else if ((*a)->index < pv2)
+				pb(a, &b);
+		}
+	}
+	sort_3(a);
 	
 }
