@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:20:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 20:04:11 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:25:49 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,17 @@ void	algo(t_list	**a)
 		}
 	}
 	sort_3(a);
+	int look = (*a)->index -1;
+	while (ft_lstsize(b))
+	{
+		if (b->index == look)
+			pa(&b, a);
+		else if (ft_lstlast(b)->index == look)
+			rrb(&b);
+		else if (ft_check_indix(&b, look) == 1)
+			rb(&b);
+		else if (ft_check_indix(&b, look) == 0)
+			rrb(&b);
+	}
 	
 }

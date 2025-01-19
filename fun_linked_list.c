@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:57:15 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 20:00:55 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:24:25 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,20 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 int	ft_lstsize(t_list *lst)
 {
+
 	int		count;
 	t_list	*sin;
 
 	if (!lst)
 		return (0);
+
+	// puts("123\n");
 	sin = lst;
 	count = 0;
 	while (sin)
 	{
-		sin = sin->next;
 		count++;
+		sin = sin->next;
 	}
 	return (count);
 }

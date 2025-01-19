@@ -6,7 +6,7 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/19 20:04:55 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/19 20:24:47 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=push_swap
 
 CC=cc 
 
- CFLAGS= #-g -fsanitize=address #-Wall -Wextra -Werror
+ CFLAGS= -g -fsanitize=address #-Wall -Wextra -Werror
 
 RM=rm -f
 
