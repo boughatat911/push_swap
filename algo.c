@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:20:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/20 17:19:42 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:49:03 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	algo(t_list	**a, t_list **b)
 	sort_3(a);
 	while (ft_lstsize(*b))
 	{
+		int max = ft_lstlast(*a)->index;
 		int look = (*a)->index -1;
 		if ((*b)->index == look)
 			pa(b, a);
@@ -100,9 +101,32 @@ void	algo(t_list	**a, t_list **b)
 			rrb(b);
 			pa(b, a);
 		}
+		else if((*b)->index > max)
+		{
+			pa(b,a);
+			ra(a);
+		}
+		else if(ft_lstlast(*b)->index > max)
+		{
+			rra(b);
+			pa(b,a);
+			ra(a);
+		}
+		else if(ft_lstlast(*a)->index == look)
+		{
+			rra(a);
+		}
 		else if (ft_check_indix(*b, look) == 1)
 			rb(b);
 		else if (ft_check_indix(*b, look) == 0)
 			rrb(b);
+		else if(max == look)
+		{
+			rra(a);
+		}
+		// else if()
+		// {
+
+		// }
 	}
 }
