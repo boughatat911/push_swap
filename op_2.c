@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:18:35 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/16 14:32:35 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:17:45 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	rra(t_list	**stack_a)
 void	rrb(t_list	**stack_b)
 {
 	rotate_rra_rrb(stack_b);
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list	**stack_a, t_list	**stack_b)
 {
 	rotate_rra_rrb(stack_a);
 	rotate_rra_rrb(stack_b);
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

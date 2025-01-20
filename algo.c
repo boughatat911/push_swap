@@ -6,35 +6,23 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:20:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 20:25:49 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:19:42 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_indix(t_list	**stack, int len)
+int	ft_check_indix(t_list	*stack, int len)
 {
-	t_list	*stack_a;
-	int 	size;
-	int 	i;
-	int		k;
-	int 	loop;
+	int		i;
 
-	i = 0;
-	k = 0;
-	loop = 0;
-	stack_a = *stack;
-	size = ft_lstsize(*stack);
-	loop = size / 2;
-	while (stack_a)
+	i = ft_lstsize(stack) / 2;
+	while (i--)
 	{
-		if ((stack_a->index < len) && (i <= loop))
-			k++;
-		i++;
-		stack_a = stack_a->next;
+		if (stack->index == len)
+			return (1);
+		stack = stack->next;
 	}
-	if(k > 0)
-		return (1);
 	return (0);
 }
 
@@ -77,42 +65,44 @@ int	ft_check_indix(t_list	**stack, int len)
 // 	*stack = stack_a;
 // }
 
-void	algo(t_list	**a)
+void	algo(t_list	**a, t_list **b)
 {
 	int	pv1;
 	int	pv2;
-	t_list *b;
+	// t_list *b;
 	
-	b = NULL;
+	ft_indexing(*a);
 	pv2 = 0;
 	while (ft_lstsize(*a) > 3)
 	{
 		pv1 = (ft_lstsize(*a) / 6) + pv2;
 		pv2 += (ft_lstsize(*a) / 3);
-		while (ft_lstsize(b) < pv2 && ft_lstsize(*a) > 3)
+		while (ft_lstsize(*b) < pv2 && ft_lstsize(*a) > 3)
 		{
-			if (ft_lstsize(b) > 1 && (b)->index < pv1 && (*a)->index >= pv2)
-				rr(a, &b);
-			else if (ft_lstsize(b) > 1 && (b)->index < pv1)
-				rb(&b);
+			if (ft_lstsize(*b) > 1 && (*b)->index < pv1 && (*a)->index >= pv2)
+				rr(a, b);
+			else if (ft_lstsize(*b) > 1 && (*b)->index < pv1)
+				rb(b);
 			if ((*a)->index >= pv2)
 				ra(a);
 			else if ((*a)->index < pv2)
-				pb(a, &b);
+				pb(a, b);
 		}
 	}
 	sort_3(a);
-	int look = (*a)->index -1;
-	while (ft_lstsize(b))
+	while (ft_lstsize(*b))
 	{
-		if (b->index == look)
-			pa(&b, a);
-		else if (ft_lstlast(b)->index == look)
-			rrb(&b);
-		else if (ft_check_indix(&b, look) == 1)
-			rb(&b);
-		else if (ft_check_indix(&b, look) == 0)
-			rrb(&b);
+		int look = (*a)->index -1;
+		if ((*b)->index == look)
+			pa(b, a);
+		else if (ft_lstlast(*b)->index == look)
+		{
+			rrb(b);
+			pa(b, a);
+		}
+		else if (ft_check_indix(*b, look) == 1)
+			rb(b);
+		else if (ft_check_indix(*b, look) == 0)
+			rrb(b);
 	}
-	
 }

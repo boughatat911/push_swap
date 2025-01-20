@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/19 19:54:07 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:17:05 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ typedef struct s_list
 
 void	print_node(t_list *head);
 // -----------sorting-------------------------
-void	sort(t_list	**stack);
+void	sort(t_list	**a, t_list **b);
 void    sort_2(t_list   **stack);
 void    sort_3(t_list  **stack);
 void    sort_5(t_list   **stack);
 void    ft_indexing(t_list *stack);
 int		ft_lstsize(t_list *lst);
-void	algo(t_list	**a);
+void	algo(t_list	**a, t_list **b);
 void 	check_index(t_list **stack);
 
 //---------parsing-----------------
@@ -71,7 +71,7 @@ void	rrr(t_list	**stack_a, t_list	**stack_b);
 void	rotate_rra_rrb(t_list	**stack);
 void	s_rotate(t_list	**stack_a);
 //---------algo-----------------
-int	ft_check_indix(t_list	**stack, int len);
+int	ft_check_indix(t_list	*stack, int len);
 
 
 #endif
