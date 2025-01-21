@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 13:26:04 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:07:56 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	algo(t_list	**a, t_list **b);
 void 	check_index(t_list **stack);
 void	sort(t_list **a, t_list **b);
 int		check_sort(t_list	**a);
+void sort_5(t_list **stack);
+void sort_5_5(t_list	*stack_a, t_list	*stack_b, t_list 	**stack);
 
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
