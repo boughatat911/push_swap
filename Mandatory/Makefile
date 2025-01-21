@@ -6,7 +6,7 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/21 13:12:13 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/21 16:09:02 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC=cc
 RM=rm -f
 
 
-SRCS=../utils/fun_linked_list.c parsing.c push_swap.c ../utils/ft_split.c ../sort/op_1.c ../sort/op_2.c ../sort/op_3.c ../sort/sorting.c ../sort/algo.c  ../utils/utils.c
+SRCS=utils/fun_linked_list.c parsing.c push_swap.c utils/ft_split.c sort/op_1.c sort/op_2.c sort/op_3.c sort/sorting.c sort/algo.c  utils/utils.c
 
 OBJS=$(SRCS:.c=.o)
 
