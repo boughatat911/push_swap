@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/20 16:56:58 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:22:04 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,4 @@ void	parse_it(char **av, t_list **head)
 	ft_check_empty(av);
 	fill_stack(av, head);
 	check_dup(*head);
-	// sort(head);
 }

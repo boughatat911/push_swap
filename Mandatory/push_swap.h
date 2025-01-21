@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:25 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/20 21:22:49 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:26:04 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-// #include "LIBFT_me/libft.h"
-// #include "track_leaks.h"
+#include <stdlib.h>
+#include <unistd.h>
 #define false 0
 #define true 1
 
@@ -31,33 +26,31 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void	print_node(t_list *head);
-// -----------sorting-------------------------
+void	algo_part_2(t_list	**a, t_list	**b, int max);
 void	sort(t_list	**a, t_list **b);
 void    sort_2(t_list   **stack);
 void    sort_3(t_list  **stack);
-void    sort_5(t_list   **stack);
 void    ft_indexing(t_list *stack);
 int		ft_lstsize(t_list *lst);
 void	algo(t_list	**a, t_list **b);
 void 	check_index(t_list **stack);
 void	sort(t_list **a, t_list **b);
+int		check_sort(t_list	**a);
 
-//---------parsing-----------------
-char	**ft_split(char const *s, char c);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst);
-void	ft_free2darray(char **array);
+
+char	**ft_split(char const *s, char c);
 void	ft_check_empty(char **av);
+void	ft_free2darray(char **array);
 void	fill_stack(char **av, t_list **head);
 void	check_dup(t_list *head);
 void	parse_it(char **av, t_list **head);
 long	ft_astoi(const char *str);
 
-//---------operations-----------------
 void	sa(t_list	**stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list	**stack_a, t_list	**stack_b);
@@ -71,7 +64,7 @@ void	rrb(t_list	**stack_b);
 void	rrr(t_list	**stack_a, t_list	**stack_b);
 void	rotate_rra_rrb(t_list	**stack);
 void	s_rotate(t_list	**stack_a);
-//---------algo-----------------
+
 int	ft_check_indix(t_list	*stack, int len);
 
 
