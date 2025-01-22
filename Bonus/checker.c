@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/22 20:25:12 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 20:41:40 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 void	ft_error(t_list	**a, t_list	**b)
 {
-	write(1, "Error99\n", 8),
+	write(1, "Error\n", 6),
 	ft_lstclear_bonus(a);
 	ft_lstclear_bonus(b);
 	exit(1);
