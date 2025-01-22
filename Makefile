@@ -6,7 +6,7 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/22 20:26:36 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/22 20:52:38 by nbougrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= 	push_swap
 
 B_NAME	= 	checker
 
-# Flags	= 	-g -fsanitize=address#-Wall -Wextra -Werror
+Flags	= 	-Wall -Wextra -Werror
 FILES	=	Mandatory/push_swap.c Mandatory/parsing.c \
 			Mandatory/sort/algo.c Mandatory/sort/sorting.c Mandatory/sort/op_1.c Mandatory/sort/op_2.c Mandatory/sort/op_3.c \
 			Mandatory/utils/ft_split.c Mandatory/utils/fun_linked_list.c Mandatory/utils/utils.c \
