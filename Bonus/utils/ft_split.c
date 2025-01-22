@@ -6,11 +6,11 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:09:02 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 19:40:36 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:24:11 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
 static	size_t	word_len(char const *s, char c)
 {

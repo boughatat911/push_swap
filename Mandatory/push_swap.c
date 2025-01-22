@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 04:49:29 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 16:22:26 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:57:56 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 
 		parse_it(av, &a);
 		sort(&a, &b);
-		print_node(a);
+		// print_node(a);
 		
 		ft_lstclear(&a);
 	}

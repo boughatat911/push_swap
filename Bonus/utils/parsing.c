@@ -6,13 +6,13 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 19:39:38 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:23:24 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_bonus.h"
 
-long	ft_astoi_bonus(const char *str)
+long	ft_atoi_bonus(const char *str)
 {
 	long	sign;
 	long	num;
@@ -73,7 +73,7 @@ void	fill_stack_bonus(char **av, t_list **head)
 		new = ft_split_bonus(av[i], ' ');
 		while (new[j])
 		{
-			atoi = ft_astoi_bonus(new[j]);
+			atoi = ft_atoi_bonus(new[j]);
 			if (atoi == 2147483648)
 			{
 				ft_lstclear_bonus(head);

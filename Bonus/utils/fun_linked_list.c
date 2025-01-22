@@ -6,11 +6,11 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:57:15 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 19:40:14 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:30:24 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
 void	ft_lstadd_back_bonus(t_list **lst, t_list *new)
 {
@@ -23,7 +23,7 @@ void	ft_lstadd_back_bonus(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	final = ft_lstlast(*lst);
+	final = ft_lstlast_bonus(*lst);
 	final->next = new;
 	return ;
 }

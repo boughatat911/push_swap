@@ -6,28 +6,11 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:08:40 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 19:38:42 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:27:26 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-int	ft_lstsize_bonus(t_list	*lst)
-{
-	int		count;
-	t_list	*sin;
-
-	if (!lst)
-		return (0);
-	sin = lst;
-	count = 0;
-	while (sin)
-	{
-		count++;
-		sin = sin->next;
-	}
-	return (count);
-}
+#include "../push_swap_bonus.h"
 
 void	ft_indexing_bonus(t_list *stack)
 {
@@ -67,16 +50,6 @@ int	ft_check_indix_bonus(t_list	*stack, int len)
 	return (0);
 }
 
-void	ft_free2darray_bonus(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i] != NULL)
-		free(array[i++]);
-	free(array);
-}
-
 int	check_sort_bonus(t_list	**a)
 {
 	t_list	*tmp;
@@ -92,4 +65,31 @@ int	check_sort_bonus(t_list	**a)
 		tmp = tmp->next;
 	}
 	return (0);
+}
+
+void	ft_free2darray_bonus(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i] != NULL)
+		free(array[i++]);
+	free(array);
+}
+
+int	ft_lstsize_bonus(t_list	*lst)
+{
+	int		count;
+	t_list	*sin;
+
+	if (!lst)
+		return (0);
+	sin = lst;
+	count = 0;
+	while (sin)
+	{
+		count++;
+		sin = sin->next;
+	}
+	return (count);
 }
