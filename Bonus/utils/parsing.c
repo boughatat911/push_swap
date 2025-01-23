@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/22 19:23:24 by nbougrin         ###   ########.fr       */
+/*   Created: 2025/01/23 13:08:51 by nbougrin          #+#    #+#             */
+/*   Updated: 2025/01/23 13:08:53 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_check_empty_bonus(char **av)
 		while (av[j][i] && av[j][i] == ' ')
 			i++;
 		if (!av[j][i])
-			(write(1, "Error_ft_check_empty\n", 21), exit(1));
+			(write(1, "Error\n", 6), exit(1));
 		j++;
 	}
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 19:25:34 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/21 13:30:30 by nbougrin         ###   ########.fr       */
+/*   Created: 2025/01/23 13:09:27 by nbougrin          #+#    #+#             */
+/*   Updated: 2025/01/23 13:09:28 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_check_empty(char **av)
 		while (av[j][i] && av[j][i] == ' ')
 			i++;
 		if (!av[j][i])
-			(write(1, "Error_ft_check_empty\n", 21), exit(1));
+			(write(1, "Error\n", 6), exit(1));
 		j++;
 	}
 }
@@ -77,7 +77,7 @@ void	fill_stack(char **av, t_list **head)
 			if (atoi == 2147483648)
 			{
 				ft_lstclear(head);
-				(write(1, "Error_ft_atoi\n", 14), ft_free2darray(new), exit(1));
+				(write(1, "Error\n", 6), ft_free2darray(new), exit(1));
 			}
 			ft_lstadd_back(head, ft_lstnew((atoi)));
 			j++;
@@ -101,7 +101,7 @@ void	check_dup(t_list *head)
 			if (new_check->content == news->content)
 			{
 				ft_lstclear(&head);
-				(write(2, "Error= likd_list\n", 17), exit (1));
+				(write(2, "Error\n", 6), exit (1));
 			}
 			new_check = new_check->next;
 		}

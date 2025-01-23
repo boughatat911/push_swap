@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 19:18:35 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/22 20:37:23 by nbougrin         ###   ########.fr       */
+/*   Created: 2025/01/23 13:08:23 by nbougrin          #+#    #+#             */
+/*   Updated: 2025/01/23 13:08:25 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 void	rr(t_list	**stack_a, t_list	**stack_b)
 {
-	t_list	*tmp_a;
-	t_list	*tmp_b;
-
-	if (!stack_a || !*stack_a || !(*stack_a)->next
-		||!stack_b || !*stack_b || !(*stack_b)->next)
-		return ;
-	tmp_a = *stack_a;
-	*stack_a = tmp_a->next;
-	tmp_a->next = NULL;
-	ft_lstadd_back_bonus(stack_a, tmp_a);
-	tmp_b = *stack_b;
-	*stack_b = tmp_b->next;
-	tmp_b->next = NULL;
-	ft_lstadd_back_bonus(stack_b, tmp_b);
+	ra(stack_a);
+	rb(stack_b);
 }
 
 void	rotate_rra_rrb(t_list	**stack)

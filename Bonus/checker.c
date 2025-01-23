@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/22 20:41:40 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:06:56 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_check_operations(char	*op, t_list	**a, t_list	**b)
 	else if (ft_strcmp(op, "ss\n") == 0)
 		ss(a, b);
 	else if (ft_strcmp(op, "pa\n") == 0)
-		pa(a, b);
+		pa(b, a);
 	else if (ft_strcmp(op, "pb\n") == 0)
 		pb(a, b);
 	else if (ft_strcmp(op, "ra\n") == 0)
