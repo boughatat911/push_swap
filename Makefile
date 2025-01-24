@@ -6,7 +6,7 @@
 #    By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 04:49:32 by nbougrin          #+#    #+#              #
-#    Updated: 2025/01/23 12:35:41 by nbougrin         ###   ########.fr        #
+#    Updated: 2025/01/24 16:57:04 by nbougrin         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,8 @@ NAME	= 	push_swap
 
 B_NAME	= 	checker
 
-Flags	= 	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	= 	-Wall -Wextra -Werror
+
 FILES	=	Mandatory/push_swap.c Mandatory/parsing.c \
 			Mandatory/sort/algo.c Mandatory/sort/sorting.c Mandatory/sort/op_1.c Mandatory/sort/op_2.c Mandatory/sort/op_3.c \
 			Mandatory/utils/ft_split.c Mandatory/utils/fun_linked_list.c Mandatory/utils/utils.c \
@@ -31,18 +32,18 @@ B_OBJ	=	$(B_FILES:.c=.o)
 all		: $(NAME)
 
 $(B_NAME)	: $(B_OBJ)
-		cc $(Flags) $(B_OBJ) -o $(B_NAME)
+		cc $(CFLAGS) $(B_OBJ) -o $(B_NAME)
 
 $(NAME)		: $(OBJ)
-		cc $(Flags) $(OBJ) -o $(NAME) 
+		cc $(CFLAGS) $(OBJ) -o $(NAME) 
 
 bonus		: $(B_NAME)
 
-bonus/%.o	: bonus/%.c /bonus/push_swap_bonus.h
-		cc $(Flags) -c $< -o $@
+bonus/%.o	: Bonus/%.c Bonus/push_swap_bonus.h
+		cc $(CFLAGS) -c $< -o $@
 
-Mandatory/%.o	: mandatory/%.c /mandatory/push_swap.h
-		cc $(Flags) -c $< -o $@
+Mandatory/%.o	: Mandatory/%.c Mandatory/push_swap.h
+		cc $(CFLAGS) -c $< -o $@
 	
 clean		:
 		@rm -rf $(OBJ) $(B_OBJ)
