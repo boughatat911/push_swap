@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:38:16 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/24 16:57:25 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:56:22 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,6 +16,9 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+# define FALSE 0
+# define TRUE 1
 
 # include <stdlib.h>
 # include <unistd.h>
