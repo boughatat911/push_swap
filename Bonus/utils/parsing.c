@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:08:51 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 20:39:33 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:48:22 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -89,12 +89,12 @@ void	fill_stack_bonus(char **av, t_list **head)
 			if (atoi == 2147483648)
 			{
 				ft_lstclear_bonus(head);
-				(write(2, "Error\n", 6), ft_free2darray_bonus(new), exit(1));
+				(write(2, "Error\n", 6), free_bonus(new), exit(1));
 			}
 			ft_lstadd_back_bonus(head, ft_lstnew_bonus((atoi)));
 			j++;
 		}
-		ft_free2darray_bonus(new);
+		free_bonus(new);
 		i++;
 	}
 }

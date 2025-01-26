@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 20:43:28 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:47:39 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -140,8 +140,8 @@ int	main(int ac, char **av)
 	fill_stack_bonus(av, &a);
 	ft_indexing_bonus(a); 
 	check_dup_bonus(a);
-	checker(a, b);
-	parse_it_bonus(av, &a, &b);
+	checker(&a, &b);
+	// parse_it_bonus(av, &a, &b);
 	if (check_sort_bonus(&a) == 0 && ft_lstsize_bonus(b) == 0)
 		ft_exit(&a, &b, 1);
 	else
