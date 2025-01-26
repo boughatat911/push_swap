@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:43:22 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 14:24:17 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:42:08 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -87,8 +87,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	while (s2[j])
 		str[i++] = s2[j++];
-	str[i] = '\0';
-	free(s1),free(s2);
+	(str[i] = '\0', free(s1),free(s2));
 	return (str);
 }
 

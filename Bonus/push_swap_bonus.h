@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:38:16 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 16:17:56 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:41:25 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -28,12 +28,13 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		parse_it_bonus(char	**av, t_list	**a, t_list	**b);
+void	parse_it_bonus(char	**av, t_list	**a, t_list	**b);
 void	ft_check_operations(char	*op, t_list	**a, t_list	**b);
 void	ft_check_empty_bonus(char	**av);
 void	check_dup_bonus(t_list	*head);
 void	fill_stack_bonus(char	**av, t_list	**head);
 void	ft_indexing_bonus(t_list	*stack);
+void	ft_exit(t_list	**a, t_list	**b, int num);
 
 char	**ft_split_bonus(char const	*s, char c);
 int		ft_strcmp(const char	*s1, const char	*s2);

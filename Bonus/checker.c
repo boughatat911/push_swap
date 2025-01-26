@@ -6,18 +6,35 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 16:14:37 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:50:46 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "push_swap_bonus.h"
 
-void	ft_error(t_list	**a, t_list	**b)
+void	ft_exit(t_list	**a, t_list	**b, int num)
 {
-	
-	ft_lstclear_bonus(a);
-	ft_lstclear_bonus(b);
-	exit(1);
+	if( num == 1)
+	{
+		write(2, "OK\n", 3),
+		ft_lstclear_bonus(a);
+		ft_lstclear_bonus(b);
+		exit(0);
+	}
+	else if( num == 2)
+	{
+		write(2, "Error\n", 6),
+		ft_lstclear_bonus(a);
+		ft_lstclear_bonus(b);
+		exit(1);
+	}
+	else if( num == 3)
+	{
+		write(2, "KO\n", 3),
+		ft_lstclear_bonus(a);
+		ft_lstclear_bonus(b);
+		exit(1);
+	}
 }
 
 void	ft_check_operations(char	*op, t_list	**a, t_list	**b)
@@ -45,63 +62,62 @@ void	ft_check_operations(char	*op, t_list	**a, t_list	**b)
 	else if (ft_strcmp(op, "rrr") == 0)
 		rrr(a, b);
 	else
-		(write(1, "Error\n", 6), ft_error(a, b));
+		ft_exit(a, b, 2);
 }
 int	ft_op(char	*op)
 {
-	if (ft_strcmp(op, "sa") == 0)
+	if (ft_strcmp(op, "sa\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "sb") == 0)
+	else if (ft_strcmp(op, "sb\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "ss") == 0)
+	else if (ft_strcmp(op, "ss\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "pa") == 0)
+	else if (ft_strcmp(op, "pa\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "pb") == 0)
+	else if (ft_strcmp(op, "pb\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "ra") == 0)
+	else if (ft_strcmp(op, "ra\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "rb") == 0)
+	else if (ft_strcmp(op, "rb\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "rr") == 0)
+	else if (ft_strcmp(op, "rr\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "rra") == 0)
+	else if (ft_strcmp(op, "rra\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "rrb") == 0)
+	else if (ft_strcmp(op, "rrb\n") == 0)
 		return (1);
-	else if (ft_strcmp(op, "rrr") == 0)
+	else if (ft_strcmp(op, "rrr\n") == 0)
 		return (1);
-	return (0);
-	
+	else
+		return (911);
 }
-
-int	parse_it_bonus(char	**av, t_list	**a, t_list	**b)
+void	parse_it_bonus(char	**av, t_list	**a, t_list	**b)
 {
 	char	*op;
-	char	*str;
 	char	**spl;
-	int		i;
-	
+	char	*str;
+	int 	i;
+
 	i = 0;
-	str = NULL;
+	str = malloc(1);
 	(ft_check_empty_bonus(av), fill_stack_bonus(av, a));
 	(ft_indexing_bonus(*a), check_dup_bonus(*a));
 	op = get_next_line(0);
 	while (op)
 	{
 		if(ft_op(op) == 1)
-			str =  ft_strjoin(str, op);
-		else
-			(write(1, "Error\n", 6), ft_error(a, b));
+			str = ft_strjoin(str, op);
+		else if( ft_op(op) == 911)
+			ft_exit(a, b, 2);
 		op = get_next_line(0);
 	}
-	spl = ft_split_bonus(str,'\n');
+	spl = ft_split_bonus(str, '\n');
 	while (spl[i])
-		ft_check_operations(spl[i], a, b);
+		(ft_check_operations(spl[i], a, b), i++);
 	if (check_sort_bonus(a) == 0 && ft_lstsize_bonus(*b) == 0)
-		return (ft_free2darray_bonus(spl), 0);
+		ft_exit(a, b, 1);
 	else
-		return (1);
+		ft_exit(a, b, 3);
 }
 
 int	main(int ac, char **av)
@@ -113,20 +129,5 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac < 2)
 		return (0);
-	int i = parse_it_bonus(av, &a, &b);
-	
-	if(i == 0)
-	{
-		write(1, "OK\n", 3);
-		ft_lstclear_bonus(&a);
-		ft_lstclear_bonus(&b);
-		exit(0);
-	}
-	else
-	{
-		write(1, "KO\n", 3);
-		ft_lstclear_bonus(&a);
-		ft_lstclear_bonus(&b);
-		exit(1);
-	}
+	parse_it_bonus(av, &a, &b);
 }
