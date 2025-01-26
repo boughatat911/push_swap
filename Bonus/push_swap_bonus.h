@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:38:16 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 17:41:25 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:43:49 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -28,8 +28,9 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void	parse_it_bonus(char	**av, t_list	**a, t_list	**b);
-void	ft_check_operations(char	*op, t_list	**a, t_list	**b);
+void	checker(t_list	**a, t_list	**b);
+// void	parse_it_bonus(char	**av, t_list	**a, t_list	**b);
+void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char **str);
 void	ft_check_empty_bonus(char	**av);
 void	check_dup_bonus(t_list	*head);
 void	fill_stack_bonus(char	**av, t_list	**head);
@@ -40,7 +41,7 @@ char	**ft_split_bonus(char const	*s, char c);
 int		ft_strcmp(const char	*s1, const char	*s2);
 long	ft_atoi_bonus(const char	*str);
 int		ft_check_indix_bonus(t_list	*stack, int len);
-void	ft_free2darray_bonus(char **array);
+void	free_bonus(char **array);
 int		check_sort_bonus(t_list	**a);
 void	ft_indexing_bonus(t_list *stack);
 int		ft_op(char	*op);

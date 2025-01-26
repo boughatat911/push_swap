@@ -6,16 +6,18 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:08:51 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 16:05:43 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:39:33 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "../push_swap_bonus.h"
 
-void	ft_free2darray_bonus(char **array)
+void	free_bonus(char **array)
 {
 	int	i;
 
+	if(!array || !(*array))
+		return ;
 	i = 0;
 	while (array[i] != NULL)
 		free(array[i++]);

@@ -6,7 +6,7 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 17:50:46 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:43:28 by nbougrin         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -37,7 +37,7 @@ void	ft_exit(t_list	**a, t_list	**b, int num)
 	}
 }
 
-void	ft_check_operations(char	*op, t_list	**a, t_list	**b)
+void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char **str)
 {
 	if (ft_strcmp(op, "sa") == 0)
 		sa(a);
@@ -62,7 +62,7 @@ void	ft_check_operations(char	*op, t_list	**a, t_list	**b)
 	else if (ft_strcmp(op, "rrr") == 0)
 		rrr(a, b);
 	else
-		ft_exit(a, b, 2);
+		(free_bonus(str),ft_exit(a, b, 2));
 }
 int	ft_op(char	*op)
 {
@@ -91,33 +91,40 @@ int	ft_op(char	*op)
 	else
 		return (911);
 }
-void	parse_it_bonus(char	**av, t_list	**a, t_list	**b)
+
+// void	parse_it_bonus(char	**av, t_list	**a, t_list	**b)
+// {
+// 	(ft_check_empty_bonus(av), fill_stack_bonus(av, a));
+// 	(ft_indexing_bonus(*a), check_dup_bonus(*a));
+// 	checker(a, b);
+// }
+void	checker(t_list	**a, t_list	**b)
 {
 	char	*op;
 	char	**spl;
 	char	*str;
+	char 	*tmp;
 	int 	i;
 
-	i = 0;
-	str = malloc(1);
-	(ft_check_empty_bonus(av), fill_stack_bonus(av, a));
-	(ft_indexing_bonus(*a), check_dup_bonus(*a));
-	op = get_next_line(0);
+	(1) && (i = 0, str = NULL, op = get_next_line(0));
 	while (op)
 	{
 		if(ft_op(op) == 1)
+		{
+			tmp = str;
 			str = ft_strjoin(str, op);
+			free(tmp);
+		}
 		else if( ft_op(op) == 911)
-			ft_exit(a, b, 2);
+			(free(op),free(str), ft_exit(a, b, 2));
+		free(op);
 		op = get_next_line(0);
 	}
 	spl = ft_split_bonus(str, '\n');
-	while (spl[i])
-		(ft_check_operations(spl[i], a, b), i++);
-	if (check_sort_bonus(a) == 0 && ft_lstsize_bonus(*b) == 0)
-		ft_exit(a, b, 1);
-	else
-		ft_exit(a, b, 3);
+	(free(op),free(str));
+	while (spl && spl[i])
+		(ft_check_operations(spl[i], a, b, spl), i++);
+	free_bonus(spl);
 }
 
 int	main(int ac, char **av)
@@ -129,5 +136,14 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac < 2)
 		return (0);
+	ft_check_empty_bonus(av);
+	fill_stack_bonus(av, &a);
+	ft_indexing_bonus(a); 
+	check_dup_bonus(a);
+	checker(a, b);
 	parse_it_bonus(av, &a, &b);
+	if (check_sort_bonus(&a) == 0 && ft_lstsize_bonus(b) == 0)
+		ft_exit(&a, &b, 1);
+	else
+		ft_exit(&a, &b, 3);
 }
