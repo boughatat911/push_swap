@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:08:40 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/22 19:27:26 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:05:35 by nbougrin         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../push_swap_bonus.h"
 
@@ -67,14 +67,18 @@ int	check_sort_bonus(t_list	**a)
 	return (0);
 }
 
-void	ft_free2darray_bonus(char **array)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (array[i] != NULL)
-		free(array[i++]);
-	free(array);
+	while ((s1[i] && s2[i]))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		i++;
+	}
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
 
 int	ft_lstsize_bonus(t_list	*lst)
