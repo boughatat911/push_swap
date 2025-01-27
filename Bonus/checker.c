@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
@@ -6,29 +6,29 @@
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:23:36 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 20:47:39 by nbougrin         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:47:31 by nbougrin         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
 void	ft_exit(t_list	**a, t_list	**b, int num)
 {
-	if( num == 1)
+	if (num == 1)
 	{
 		write(2, "OK\n", 3),
 		ft_lstclear_bonus(a);
 		ft_lstclear_bonus(b);
 		exit(0);
 	}
-	else if( num == 2)
+	else if (num == 2)
 	{
 		write(2, "Error\n", 6),
 		ft_lstclear_bonus(a);
 		ft_lstclear_bonus(b);
 		exit(1);
 	}
-	else if( num == 3)
+	else if (num == 3)
 	{
 		write(2, "KO\n", 3),
 		ft_lstclear_bonus(a);
@@ -62,8 +62,9 @@ void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char **str)
 	else if (ft_strcmp(op, "rrr") == 0)
 		rrr(a, b);
 	else
-		(free_bonus(str),ft_exit(a, b, 2));
+		(free_bonus(str), ft_exit(a, b, 2));
 }
+
 int	ft_op(char	*op)
 {
 	if (ft_strcmp(op, "sa\n") == 0)
@@ -92,36 +93,30 @@ int	ft_op(char	*op)
 		return (911);
 }
 
-// void	parse_it_bonus(char	**av, t_list	**a, t_list	**b)
-// {
-// 	(ft_check_empty_bonus(av), fill_stack_bonus(av, a));
-// 	(ft_indexing_bonus(*a), check_dup_bonus(*a));
-// 	checker(a, b);
-// }
 void	checker(t_list	**a, t_list	**b)
 {
 	char	*op;
 	char	**spl;
 	char	*str;
-	char 	*tmp;
-	int 	i;
+	char	*tmp;
+	int		i;
 
 	(1) && (i = 0, str = NULL, op = get_next_line(0));
 	while (op)
 	{
-		if(ft_op(op) == 1)
+		if (ft_op (op) == 1)
 		{
 			tmp = str;
 			str = ft_strjoin(str, op);
 			free(tmp);
 		}
-		else if( ft_op(op) == 911)
-			(free(op),free(str), ft_exit(a, b, 2));
+		else if (ft_op (op) == 911)
+			(free(op), free(str), ft_exit(a, b, 2));
 		free(op);
 		op = get_next_line(0);
 	}
 	spl = ft_split_bonus(str, '\n');
-	(free(op),free(str));
+	(free(op), free(str));
 	while (spl && spl[i])
 		(ft_check_operations(spl[i], a, b, spl), i++);
 	free_bonus(spl);
@@ -138,10 +133,9 @@ int	main(int ac, char **av)
 		return (0);
 	ft_check_empty_bonus(av);
 	fill_stack_bonus(av, &a);
-	ft_indexing_bonus(a); 
+	ft_indexing_bonus(a);
 	check_dup_bonus(a);
 	checker(&a, &b);
-	// parse_it_bonus(av, &a, &b);
 	if (check_sort_bonus(&a) == 0 && ft_lstsize_bonus(b) == 0)
 		ft_exit(&a, &b, 1);
 	else

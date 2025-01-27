@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbougrin <nbougrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 15:38:16 by nbougrin          #+#    #+#             */
-/*   Updated: 2025/01/26 20:43:49 by nbougrin         ###   ########.fr       */
+/*   Created: 2025/01/27 12:51:09 by nbougrin          #+#    #+#             */
+/*   Updated: 2025/01/27 12:51:14 by nbougrin         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
@@ -29,8 +29,7 @@ typedef struct s_list
 }					t_list;
 
 void	checker(t_list	**a, t_list	**b);
-// void	parse_it_bonus(char	**av, t_list	**a, t_list	**b);
-void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char **str);
+void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char	**str);
 void	ft_check_empty_bonus(char	**av);
 void	check_dup_bonus(t_list	*head);
 void	fill_stack_bonus(char	**av, t_list	**head);
