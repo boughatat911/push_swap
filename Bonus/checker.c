@@ -52,7 +52,7 @@ void	ft_check_operations(char	*op, t_list	**a, t_list	**b, char **str)
 	else if (ft_strcmp(op, "ra") == 0)
 		ra(a);
 	else if (ft_strcmp(op, "rb") == 0)
-		rb(a);
+		rb(b);
 	else if (ft_strcmp(op, "rr") == 0)
 		rr(a, b);
 	else if (ft_strcmp(op, "rra") == 0)
